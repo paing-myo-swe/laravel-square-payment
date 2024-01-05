@@ -34,5 +34,3 @@ Route::get('/payment-links/{id}', [PaymentController::class, 'getPaymentLinkDeta
 Route::post('/orders', [PaymentController::class, 'createOrder']);
 Route::get('/orders/{id}', [PaymentController::class, 'getOrderDetails']);
 
-Route::post('card-payment', [CardPaymentController::class, 'showPaymentForm']);
-

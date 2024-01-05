@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('card-payment', [CardPaymentController::class, 'showPaymentForm']);
 Route::post('/payment', [CardPaymentController::class, 'createPayment']);

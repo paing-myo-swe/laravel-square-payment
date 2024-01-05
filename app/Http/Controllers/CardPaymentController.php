@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateCardPaymentRequest;
 use Illuminate\Http\Request;
 use Square\SquareClient;
 use Square\Environment;
@@ -50,7 +51,7 @@ class CardPaymentController extends Controller
         ]));
     }
 
-    public function createPayment(Request $request)
+    public function createPayment(CreateCardPaymentRequest $request)
     {
         try {
 
@@ -64,7 +65,7 @@ class CardPaymentController extends Controller
             // Instead, leverage Orders to create an order on the server
             // and pass the Order ID to createPayment rather than raw amounts
             // See Orders documentation: https://developer.squareup.com/docs/orders-api/what-it-does
-            $amount = $request->amount;
+            $amount = 1;
 
             $body = CreatePaymentRequestBuilder::init(
                 $sourceId, //'cnon:card-nonce-ok' this source_id repersent to show card form
