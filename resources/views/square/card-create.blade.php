@@ -6,21 +6,20 @@
       src="https://sandbox.web.squarecdn.com/v1/square.js"
     ></script>
     <meta charset="utf-8" />
-    <title>Square Web Payments Quickstart</title>
+    <title>Create New Card</title>
     <link href="{{ asset('square/card-payment.css') }}" rel="stylesheet" />
   </head>
 
   <body>
     <form id="payment-form">
       <div id="card-container"></div>
-      <button id="card-button" type="button">Pay</button>
+      <button id="card-button" type="button">Save Card</button>
     </form>
     <div id="payment-status-container"></div>
   </body>
 
 <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 <script>
-
   const appId = '{{ $appId }}';
   const locationId = '{{ $locationId }}';
 
@@ -82,7 +81,7 @@
       locationId,
       sourceId: token,
     });
-    const paymentResponse = await fetch('/payment', {
+    const paymentResponse = await fetch('/cards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

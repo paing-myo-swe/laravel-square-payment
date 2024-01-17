@@ -22,7 +22,6 @@ class CreateCardPaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'idempotencyKey' => 'required',
             'sourceId' => 'required',
             'locationId' => 'required',
         ];

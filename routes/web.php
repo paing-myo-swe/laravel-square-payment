@@ -18,5 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('card-payment', [CardPaymentController::class, 'showPaymentForm']);
-Route::post('/payment', [CardPaymentController::class, 'createPayment']);
+Route::get('cards', [CardPaymentController::class, 'myCards'])->name('cards.index');
+Route::get('cards/create', [CardPaymentController::class, 'showCardForm'])->name('cards.create');
+Route::post('cards', [CardPaymentController::class, 'addNewCard'])->name('cards.store');
+Route::post('/pay', [CardPaymentController::class, 'pay'])->name('pay');
+
+// Route::get('card-payment', [CardPaymentController::class, 'showPaymentForm']);
+// Route::post('/payment', [CardPaymentController::class, 'createPayment'])->name('payment');
+
